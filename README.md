@@ -242,11 +242,16 @@ firebase deploy
 
 ---
 
+
 ## 👨‍💻 Author
 
-Built for **Computer Engineering Final Year Project**  
+**Karansinh Solanki**
+Computer Engineering Student
+
+🔗 GitHub: https://github.com/KARANSINH-BAPU
+📧 Email:karansolanki565656@gmail.com
+💼 LinkedIn:www.linkedin.com/in/karansinh-solanki-78754b277
+
+Built as a **Final Year Project**
 Powered by FinAI Engine v1.0
 
----
-
-*© 2026 FinAI. Built with ❤️ using HTML, CSS, JavaScript, Firebase & AI.*
