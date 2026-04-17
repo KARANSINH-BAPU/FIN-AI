@@ -1,6 +1,6 @@
 # FinAI – AI Smart Expense Tracker 🤖💰
 
-> **Final Year Computer Engineering Project**  
+> 
 > A production-ready, AI-powered expense tracker with real-time Firebase sync, smart insights, voice entry, and beautiful glassmorphism UI.
 
 ---
