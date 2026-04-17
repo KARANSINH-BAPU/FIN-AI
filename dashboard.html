@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – FinAI</title>
+    <meta name="description"
+        content="FinAI Dashboard – Track expenses, view AI insights, manage budgets and download reports." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body>
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- App Layout -->
+    <div class="app-layout">
+        <!-- ── Sidebar ── -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="22" stroke="url(#slg1)" stroke-width="2.5" />
+                        <path d="M14 24l6 6 14-14" stroke="url(#slg2)" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="slg1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#6366f1" />
+                                <stop offset="1" stop-color="#a855f7" />
+                            </linearGradient>
+                            <linearGradient id="slg2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#6366f1" />
+                                <stop offset="1" stop-color="#a855f7" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>FinAI</span>
+                </div>
+                <button class="sidebar-close" id="sidebarClose" onclick="closeSidebar()">✕</button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" id="nav-dashboard" onclick="navigateTo('dashboard')">
+                    <span class="nav-icon">🏠</span> Dashboard
+                </button>
+                <button class="nav-item" id="nav-expenses" onclick="navigateTo('expenses')">
+                    <span class="nav-icon">💳</span> Expenses
+                </button>
+                <button class="nav-item" id="nav-budget" onclick="navigateTo('budget')">
+                    <span class="nav-icon">🎯</span> Budget
+                </button>
+                <button class="nav-item" id="nav-reports" onclick="navigateTo('reports')">
+                    <span class="nav-icon">📊</span> Reports
+                </button>
+                <button class="nav-item" id="nav-ai" onclick="navigateTo('ai')">
+                    <span class="nav-icon">🤖</span> AI Insights
+                    <span class="nav-badge">AI</span>
+                </button>
+
+                <div class="nav-section-label">Tools</div>
+                <button class="nav-item" id="nav-voice" onclick="openVoiceModal()">
+                    <span class="nav-icon">🎙️</span> Voice Entry
+                </button>
+                <button class="nav-item" id="nav-health" onclick="navigateTo('health')">
+                    <span class="nav-icon">🏆</span> Health Score
+                </button>
+                <button class="nav-item" id="nav-settings" onclick="navigateTo('settings')">
+                    <span class="nav-icon">⚙️</span> Settings
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div>
+                        <div class="user-name" id="userName">Loading...</div>
+                        <div class="user-email" id="userEmail">...</div>
+                    </div>
+                    <button class="user-menu-btn" onclick="toggleUserMenu()">⋮</button>
+                </div>
+                <div class="dropdown-menu" id="userMenu">
+                    <button class="dropdown-item" onclick="navigateTo('settings')">⚙️ Settings</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item danger" onclick="handleSignOut()">🚪 Sign Out</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ── Main Content ── -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="openSidebar()">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="topbar-left">
+                    <div class="topbar-title" id="pageTitle">Dashboard</div>
+                    <div class="topbar-subtitle" id="pageSubtitle">Welcome back! Here's your financial overview.</div>
+                </div>
+                <div class="topbar-actions">
+                    <button class="topbar-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">
+                        <span id="themeIcon">🌙</span>
+                    </button>
+                    <button class="topbar-btn" onclick="openVoiceModal()" title="Voice expense entry">🎙️</button>
+                    <button class="btn btn-primary btn-sm" onclick="openAddExpenseModal()" id="addExpenseBtn">
+                        + Add Expense
+                    </button>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content" id="pageContent">
+                <!-- Content rendered by JS -->
+                <div class="skeleton" style="height:120px;margin-bottom:20px;border-radius:18px"></div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:20px">
+                    <div class="skeleton" style="height:100px;border-radius:18px"></div>
+                    <div class="skeleton" style="height:100px;border-radius:18px"></div>
+                    <div class="skeleton" style="height:100px;border-radius:18px"></div>
+                    <div class="skeleton" style="height:100px;border-radius:18px"></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+                    <div class="skeleton" style="height:300px;border-radius:18px"></div>
+                    <div class="skeleton" style="height:300px;border-radius:18px"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ── Add/Edit Expense Modal ── -->
+    <div class="modal-overlay" id="expenseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="expenseModalTitle">Add Expense</h3>
+                <button class="modal-close" onclick="closeExpenseModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="expenseForm" onsubmit="handleExpenseSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">Expense Title *</label>
+                        <input type="text" id="expTitle" class="form-input"
+                            placeholder="e.g. Swiggy Order, Uber Ride..." required
+                            oninput="autoFillCategory(this.value)" />
+                        <span class="form-hint" id="autoCatHint" style="color:#6366f1;display:none">🤖 AI detected
+                            category: <strong id="autoCatName"></strong></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Amount (₹) *</label>
+                            <input type="number" id="expAmount" class="form-input" placeholder="0.00" min="0.01"
+                                step="0.01" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Date *</label>
+                            <input type="date" id="expDate" class="form-input" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Category *</label>
+                            <select id="expCategory" class="form-select" required>
+                                <option value="">Select category</option>
+                                <option value="Food">🍕 Food</option>
+                                <option value="Travel">🚗 Travel</option>
+                                <option value="Shopping">🛍️ Shopping</option>
+                                <option value="Bills">📄 Bills</option>
+                                <option value="Health">💊 Health</option>
+                                <option value="Entertainment">🎬 Entertainment</option>
+                                <option value="Education">📚 Education</option>
+                                <option value="Other">📦 Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Payment Mode</label>
+                            <select id="expPaymentMode" class="form-select">
+                                <option value="UPI">📱 UPI</option>
+                                <option value="Credit Card">💳 Credit Card</option>
+                                <option value="Debit Card">💳 Debit Card</option>
+                                <option value="Cash">💵 Cash</option>
+                                <option value="Net Banking">🏦 Net Banking</option>
+                                <option value="Other">📦 Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Notes (optional)</label>
+                        <textarea id="expNotes" class="form-textarea" rows="2"
+                            placeholder="Add any notes..."></textarea>
+                    </div>
+                    <input type="hidden" id="expEditId" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeExpenseModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="handleExpenseSubmit(event)" id="expSubmitBtn">
+                    <span id="expSubmitText">Add Expense</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Voice Modal ── -->
+    <div class="modal-overlay" id="voiceModal">
+        <div class="modal" style="max-width:420px">
+            <div class="modal-header">
+                <h3 class="modal-title">🎙️ Voice Expense Entry</h3>
+                <button class="modal-close" onclick="closeVoiceModal()">✕</button>
+            </div>
+            <div class="modal-body" style="text-align:center">
+                <p style="color:var(--text-secondary);margin-bottom:24px;font-size:0.9rem">
+                    Say something like:<br />
+                    <em>"Add 500 for Dominos"</em> or <em>"Spent 200 on auto"</em>
+                </p>
+                <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()" style="margin:0 auto 20px;display:flex">
+                    🎙️
+                </button>
+                <div id="voiceStatus" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px">
+                    Click the mic to start listening
+                </div>
+                <div id="voiceTranscript"
+                    style="font-size:1rem;font-weight:600;min-height:24px;color:var(--text-primary)"></div>
+                <div id="voiceParsed" style="margin-top:16px;display:none">
+                    <div class="glass-card" style="padding:16px;text-align:left">
+                        <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:8px">Detected:</div>
+                        <div id="voiceParsedContent"></div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top:16px;width:100%" onclick="confirmVoiceExpense()">
+                        ✓ Add This Expense
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Delete Confirm Modal ── -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal" style="max-width:380px">
+            <div class="modal-header">
+                <h3 class="modal-title">Delete Expense</h3>
+                <button class="modal-close" onclick="closeDeleteModal()">✕</button>
+            </div>
+            <div class="modal-body" style="text-align:center">
+                <div style="font-size:2.5rem;margin-bottom:12px">🗑️</div>
+                <p style="color:var(--text-secondary)">Are you sure you want to delete this expense? This action cannot
+                    be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeDeleteModal()">Cancel</button>
+                <button class="btn btn-danger" onclick="confirmDelete()" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Toast Container ── -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ── Scripts ── -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Firebase Compat SDK (must load before firebase-config.js) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/ai-engine.js"></script>
+    <script src="js/pdf-report.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinAI – AI Smart Expense Tracker</title>
+  <meta name="description" content="FinAI is an AI-powered expense tracker that helps you manage budgets, track spending, and get smart financial insights in real-time." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="22" stroke="url(#lg1)" stroke-width="2.5"/>
+          <path d="M14 24l6 6 14-14" stroke="url(#lg2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+            </linearGradient>
+            <linearGradient id="lg2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="loader-text">FinAI</div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="22" stroke="url(#navlg1)" stroke-width="2.5"/>
+          <path d="M14 24l6 6 14-14" stroke="url(#navlg2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="navlg1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+            </linearGradient>
+            <linearGradient id="navlg2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>FinAI</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#ai-section" class="nav-link">AI Engine</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon sun">☀️</span>
+          <span class="theme-icon moon">🌙</span>
+        </button>
+        <a href="auth.html" class="btn btn-ghost">Sign In</a>
+        <a href="auth.html?mode=signup" class="btn btn-primary">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>AI-Powered Financial Intelligence</span>
+      </div>
+      <h1 class="hero-title">
+        Track Smarter.<br/>
+        <span class="gradient-text">Save Better.</span><br/>
+        Live Richer.
+      </h1>
+      <p class="hero-subtitle">
+        FinAI uses advanced AI to analyze your spending patterns, predict future expenses, 
+        and give you personalized insights — so you can make smarter financial decisions every day.
+      </p>
+      <div class="hero-cta">
+        <a href="auth.html?mode=signup" class="btn btn-primary btn-lg">
+          <span>Start Free Today</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#features" class="btn btn-ghost btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+          <span>See How It Works</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="50000">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Active Users</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-prefix">₹</span><span class="stat-number" data-target="2500">0</span><span class="stat-suffix">Cr+</span>
+          <span class="stat-label">Expenses Tracked</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Accuracy Rate</span>
+        </div>
+      </div>
+    </div>
+    <!-- Dashboard Preview -->
+    <div class="hero-visual">
+      <div class="dashboard-preview glass-card">
+        <div class="preview-header">
+          <div class="preview-dots">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          </div>
+          <span class="preview-title">FinAI Dashboard</span>
+        </div>
+        <div class="preview-stats-row">
+          <div class="preview-stat-card">
+            <div class="psc-icon" style="background: linear-gradient(135deg,#6366f1,#a855f7)">💰</div>
+            <div>
+              <div class="psc-label">Total Balance</div>
+              <div class="psc-value">₹45,230</div>
+            </div>
+          </div>
+          <div class="preview-stat-card">
+            <div class="psc-icon" style="background: linear-gradient(135deg,#f43f5e,#fb923c)">📉</div>
+            <div>
+              <div class="psc-label">Spent This Month</div>
+              <div class="psc-value">₹12,450</div>
+            </div>
+          </div>
+          <div class="preview-stat-card">
+            <div class="psc-icon" style="background: linear-gradient(135deg,#10b981,#06b6d4)">📈</div>
+            <div>
+              <div class="psc-label">Savings</div>
+              <div class="psc-value">₹8,780</div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-chart-area">
+          <canvas id="heroChart" width="400" height="140"></canvas>
+        </div>
+        <div class="preview-ai-card">
+          <div class="ai-badge">🤖 AI Insight</div>
+          <p class="ai-text">"You spend 35% more on Food this month. Reducing dining out could save ₹2,500!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">Everything You Need</div>
+        <h2 class="section-title">Powerful Features for <span class="gradient-text">Smart Finance</span></h2>
+        <p class="section-subtitle">From AI-powered insights to voice entry — FinAI has every tool you need to master your money.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card glass-card" data-aos="fade-up" data-delay="0">
+          <div class="feature-icon" style="background: linear-gradient(135deg,#6366f1,#a855f7)">🤖</div>
+          <h3>AI Insight Engine</h3>
+          <p>Get personalized spending insights, predictions, and savings suggestions powered by intelligent rule-based AI with OpenAI API integration ready.</p>
+          <div class="feature-tag">Smart Analysis</div>
+        </div>
+        <div class="feature-card glass-card" data-aos="fade-up" data-delay="100">
+          <div class="feature-icon" style="background: linear-gradient(135deg,#f43f5e,#fb923c)">📊</div>
+          <h3>Interactive Reports</h3>
+          <p>Beautiful pie charts, bar graphs, and trend lines that visualize your spending patterns weekly and monthly with comparison analytics.</p>
+          <div class="feature-tag">Visual Analytics</div>
+        </div>
+        <div class="feature-card glass-card" data-aos="fade-up" data-delay="200">
+          <div class="feature-icon" style="background: linear-gradient(135deg,#10b981,#06b6d4)">🎙️</div>
+          <h3>Voice Expense Entry</h3>
+          <p>Add expenses hands-free using natural voice commands. Just say "Add ₹500 for Dominos" and FinAI handles the rest automatically.</p>
+          <div class="feature-tag">Voice AI</div>
+        </div>
+        <div class="feature-card glass-card" data-aos="fade-up" data-delay="300">
+          <div class="feature-icon" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">🏆</div>
+          <h3>Financial Health Score</h3>
+          <p>Get a real-time 0–100 score based on your savings rate, budget discipline, and spending patterns with animated progress visualization.</p>
+          <div class="feature-tag">Health Metrics</div>
+        </div>
+        <div class="feature-card glass-card" data-aos="fade-up" data-delay="400">
+          <div class="feature-icon" style="background: linear-gradient(135deg,#8b5cf6,#06b6d4)">🧠</div>
+          <h3>Auto Categorization</h3>
+          <p>AI automatically detects expense categories from names. "Uber" → Travel, "Dominos" → Food — no manual tagging needed.</p>
+          <div class="feature-tag">Smart AI</div>
+        </div>
+        <div class="feature-card glass-card" data-aos="fade-up" data-delay="500">
+          <div class="feature-icon" style="background: linear-gradient(135deg,#ec4899,#8b5cf6)">📄</div>
+          <h3>PDF Report Export</h3>
+          <p>Download beautifully formatted monthly reports with charts, AI insights, and spending summaries — perfect for financial reviews.</p>
+          <div class="feature-tag">Export Ready</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Section -->
+  <section class="ai-section" id="ai-section">
+    <div class="section-container">
+      <div class="ai-content">
+        <div class="ai-text-side">
+          <div class="section-badge">Powered by Intelligence</div>
+          <h2 class="section-title">Meet Your <span class="gradient-text">AI Financial Advisor</span></h2>
+          <p class="section-subtitle">Our AI engine analyzes thousands of data points to give you insights that matter — personalized, actionable, and always learning.</p>
+          <div class="ai-features-list">
+            <div class="ai-feature-item">
+              <div class="ai-check">✓</div>
+              <div>
+                <strong>Spending Pattern Detection</strong>
+                <p>Identifies unusual spikes and recurring patterns in your expenses</p>
+              </div>
+            </div>
+            <div class="ai-feature-item">
+              <div class="ai-check">✓</div>
+              <div>
+                <strong>Predictive Budgeting</strong>
+                <p>Forecasts next month's expenses based on your historical data</p>
+              </div>
+            </div>
+            <div class="ai-feature-item">
+              <div class="ai-check">✓</div>
+              <div>
+                <strong>Savings Optimization</strong>
+                <p>Suggests specific areas where you can cut costs and save more</p>
+              </div>
+            </div>
+            <div class="ai-feature-item">
+              <div class="ai-check">✓</div>
+              <div>
+                <strong>Risk Alerts</strong>
+                <p>Warns you when overspending patterns are detected before it's too late</p>
+              </div>
+            </div>
+          </div>
+          <a href="auth.html?mode=signup" class="btn btn-primary">Try AI Insights Free</a>
+        </div>
+        <div class="ai-visual-side">
+          <div class="ai-insight-cards">
+            <div class="insight-card glass-card floating-1">
+              <div class="insight-icon">🍕</div>
+              <div class="insight-content">
+                <div class="insight-title">Food Spending Alert</div>
+                <div class="insight-body">You've spent 35% more on food this month compared to last month.</div>
+                <div class="insight-action">View Details →</div>
+              </div>
+            </div>
+            <div class="insight-card glass-card floating-2">
+              <div class="insight-icon">💡</div>
+              <div class="insight-content">
+                <div class="insight-title">Savings Opportunity</div>
+                <div class="insight-body">Reducing weekend dining could save you ₹2,500 monthly.</div>
+                <div class="insight-action">See Plan →</div>
+              </div>
+            </div>
+            <div class="insight-card glass-card floating-3">
+              <div class="insight-icon">📈</div>
+              <div class="insight-content">
+                <div class="insight-title">Prediction</div>
+                <div class="insight-body">Based on trends, you'll spend ₹18,000 next month.</div>
+                <div class="insight-action">Adjust Budget →</div>
+              </div>
+            </div>
+            <div class="health-score-card glass-card">
+              <div class="hs-label">Financial Health Score</div>
+              <div class="hs-circle">
+                <svg viewBox="0 0 120 120" width="120" height="120">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="10"/>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="url(#hsGrad)" stroke-width="10"
+                    stroke-dasharray="314" stroke-dashoffset="78" stroke-linecap="round"
+                    transform="rotate(-90 60 60)"/>
+                  <defs>
+                    <linearGradient id="hsGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#6366f1"/>
+                      <stop offset="100%" stop-color="#a855f7"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="hs-number">75</div>
+              </div>
+              <div class="hs-status good">Good</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">Simple Pricing</div>
+        <h2 class="section-title">Choose Your <span class="gradient-text">Plan</span></h2>
+        <p class="section-subtitle">Start free, upgrade when you're ready. No hidden fees, cancel anytime.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card glass-card">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price"><span class="price-currency">₹</span>0<span class="price-period">/mo</span></div>
+          <div class="plan-desc">Perfect for individuals getting started</div>
+          <ul class="plan-features">
+            <li>✓ Up to 50 expenses/month</li>
+            <li>✓ Basic AI insights</li>
+            <li>✓ Monthly reports</li>
+            <li>✓ 2 budget categories</li>
+            <li class="disabled">✗ Voice entry</li>
+            <li class="disabled">✗ PDF export</li>
+            <li class="disabled">✗ Advanced AI</li>
+          </ul>
+          <a href="auth.html?mode=signup" class="btn btn-ghost btn-full">Get Started Free</a>
+        </div>
+        <div class="pricing-card glass-card featured">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price"><span class="price-currency">₹</span>199<span class="price-period">/mo</span></div>
+          <div class="plan-desc">For serious financial management</div>
+          <ul class="plan-features">
+            <li>✓ Unlimited expenses</li>
+            <li>✓ Advanced AI insights</li>
+            <li>✓ Weekly + Monthly reports</li>
+            <li>✓ All budget categories</li>
+            <li>✓ Voice entry</li>
+            <li>✓ PDF export</li>
+            <li>✓ Financial health score</li>
+          </ul>
+          <a href="auth.html?mode=signup" class="btn btn-primary btn-full">Start Pro Trial</a>
+        </div>
+        <div class="pricing-card glass-card">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price"><span class="price-currency">₹</span>499<span class="price-period">/mo</span></div>
+          <div class="plan-desc">For teams and businesses</div>
+          <ul class="plan-features">
+            <li>✓ Everything in Pro</li>
+            <li>✓ Team collaboration</li>
+            <li>✓ Custom categories</li>
+            <li>✓ API access</li>
+            <li>✓ Priority support</li>
+            <li>✓ Custom AI training</li>
+            <li>✓ White-label option</li>
+          </ul>
+          <a href="auth.html?mode=signup" class="btn btn-ghost btn-full">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">What Users Say</div>
+        <h2 class="section-title">Loved by <span class="gradient-text">Thousands</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card glass-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"FinAI completely changed how I manage money. The AI insights are incredibly accurate — it predicted my overspending before I even noticed it!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg,#6366f1,#a855f7)">P</div>
+            <div>
+              <div class="author-name">Priya Sharma</div>
+              <div class="author-role">Software Engineer, Pune</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"The voice expense entry is a game-changer! I just say 'Add 200 for auto' and it's done. Saved me so much time tracking daily expenses."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg,#10b981,#06b6d4)">R</div>
+            <div>
+              <div class="author-name">Rahul Mehta</div>
+              <div class="author-role">MBA Student, Mumbai</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"As a freelancer, tracking expenses was a nightmare. FinAI's PDF reports and AI categorization make tax season so much easier. Absolutely love it!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg,#f43f5e,#fb923c)">A</div>
+            <div>
+              <div class="author-name">Ananya Patel</div>
+              <div class="author-role">Freelance Designer, Ahmedabad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="section-container">
+      <div class="cta-card glass-card">
+        <div class="cta-blob"></div>
+        <h2>Ready to Take Control of Your Finances?</h2>
+        <p>Join 50,000+ users who are already saving smarter with FinAI. Start free today — no credit card required.</p>
+        <div class="cta-actions">
+          <a href="auth.html?mode=signup" class="btn btn-primary btn-lg">Start Free Today</a>
+          <a href="auth.html" class="btn btn-ghost btn-lg">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="url(#ftlg1)" stroke-width="2.5"/>
+            <path d="M14 24l6 6 14-14" stroke="url(#ftlg2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="ftlg1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+              </linearGradient>
+              <linearGradient id="ftlg2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>FinAI</span>
+        </div>
+        <p>AI-powered expense tracking for the modern generation. Smart, beautiful, and always learning.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#ai-section">AI Engine</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 FinAI. Built with ❤️ for Computer Engineering Final Year Project.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>
