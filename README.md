@@ -7,6 +7,8 @@
 
 ## 🚀 Live Demo
 Open `index.html` in a browser — no server required! Works fully offline using localStorage.
+## 🔗 Live Demo
+https://your-netlify-link
 
 ---
 
